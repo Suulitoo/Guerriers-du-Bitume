@@ -1,0 +1,1001 @@
+/* Guerriers du Bitume - Style principal */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    background: rgba(0,0,0,0.8);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+}
+
+.logo h1 {
+    color: #c8102e;
+    font-size: 2.8rem;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #ff6200;
+    font-size: 1rem;
+    display: block;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: #00d4ff;
+    text-shadow: 0 0 10px #00d4ff;
+}
+
+/* Hero vidéo (déjà bon, on optimise juste) */
+.hero-video {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35) !important; /* plus léger */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 8%;
+}
+
+.hero-overlay h2 {
+    font-size: 3.8rem !important; /* réduit de 5.5rem à 3.8rem */
+    color: #c8102e;
+    text-shadow: 0 0 25px rgba(200,16,46,0.7);
+    margin-bottom: 1rem !important;
+}
+
+.hero-overlay p {
+    font-size: 1.5rem !important; /* plus petit que 1.8rem */
+    max-width: 800px;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 2px 10px black;
+}
+
+
+
+.btn-cta {  
+    display: inline-block;  
+    background: linear-gradient(135deg, #c8102e, #ff6200);  
+    color: white;  
+    padding: 1.2rem 3rem;  
+    border-radius: 60px;  
+    text-decoration: none;  
+    font-weight: bold;  
+    font-size: 1.4rem;  
+    box-shadow: 0 0 30px rgba(255,98,0,0.6);  
+    margin: 2rem 0;  
+    transition: all .4s;  
+}  
+
+.btn-cta:hover {  
+    transform: translateY(-5px);  
+    box-shadow: 0 15px 40px rgba(255,98,0,0.8);  
+}  
+
+/* Intro section */
+.intro-section {
+    padding: 8rem 5% 6rem;
+    text-align: center;
+    background: #111;
+}
+
+.intro-section h2 {
+    color: #00d4ff;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px #00d4ff;
+}
+
+.intro-section p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+}
+
+/* Footer */
+footer {
+    padding: 2rem;
+    text-align: center;
+    background: #0a0a0a;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-overlay h2 { font-size: 3.8rem; }
+    .hero-overlay p { font-size: 1.4rem; }
+    .btn-cta { padding: 1rem 2.5rem; font-size: 1.4rem; }
+    nav ul { gap: 1.2rem; font-size: 0.9rem; }
+}
+
+/* Labels orange vif + glow */
+.form-recrutement .form-group label {
+    color: #ff6200 !important;               /* orange vif forcé */
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    text-shadow: 0 0 8px rgba(255,98,0,0.6) !important; /* glow orange */
+    margin-bottom: 0.6rem !important;
+}
+
+/* CHAMPS DE SAISIE – DESIGN SOMBRE & NÉON (labels déjà orange, on touche plus) */
+.form-recrutement .form-group input,
+.form-recrutement .form-group textarea {
+    background: #111111 !important;           /* noir profond */
+    color: #f0f0f0 !important;               /* texte très clair */
+    border: 2px solid #444444 !important;    /* bordure grise discrète */
+    border-radius: 12px !important;
+    padding: 1.3rem 1.6rem !important;
+    font-size: 1.1rem !important;
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.8) !important;
+    transition: all 0.35s ease !important;
+}
+
+/* Placeholder gris clair discret */
+.form-recrutement .form-group input::placeholder,
+.form-recrutement .form-group textarea::placeholder {
+    color: #777777 !important;
+}
+
+/* Au focus : glow rouge/orange + bordure vive */
+.form-recrutement .form-group input:focus,
+.form-recrutement .form-group textarea:focus {
+    border-color: #ff6200 !important;
+    box-shadow: 0 0 25px rgba(255,98,0,0.35) !important;
+    background: #181818 !important;
+    outline: none !important;
+}
+
+/* Bouton reste inchangé, il est déjà beau */
+.btn-submit {
+    background: linear-gradient(135deg, #c8102e, #ff6200) !important;
+    color: white !important;
+    padding: 1.4rem !important;
+    border: none !important;
+    border-radius: 60px !important;
+    font-size: 1.4rem !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: all 0.4s ease !important;
+    box-shadow: 0 0 35px rgba(200,16,46,0.6) !important;
+    margin-top: 1.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+}
+
+.btn-submit:hover {
+    transform: translateY(-6px) scale(1.05) !important;
+    box-shadow: 0 25px 60px rgba(255,98,0,0.8) !important;
+}
+
+/* FORMULAIRE RECRUTEMENT – CORRECTION FINALE (labels orange, champs noirs) */
+
+/* Labels orange vif forcés */
+.form-recrutement .form-group label,
+.form-recrutement label,
+.recrutement-form label,
+.recrutement-form label span {
+    color: #c400ba !important;
+    font-weight: bold !important;
+    font-size: 1.3rem !important;
+    text-shadow: 0 0 5px rgba(110, 43, 3, 0.6) !important;
+    margin-bottom: 0.7rem !important;
+    display: block !important;
+}
+
+/* Champs de saisie : noirs profonds, texte clair, bordure grise → orange au focus */
+.form-recrutement .form-group input,
+.form-recrutement .form-group textarea {
+    background: #111111 !important;
+    color: #f0f0f0 !important;
+    border: 12px solid #444444 !important;
+    border-radius: 2px !important;
+    padding: 1.3rem 1.6rem !important;
+    font-size: 1.1rem !important;
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.8) !important;
+    transition: all 0.35s ease !important;
+}
+
+.form-recrutement .form-group input::placeholder,
+.form-recrutement .form-group textarea::placeholder {
+    color: #777777 !important;
+}
+
+.form-recrutement .form-group input:focus,
+.form-recrutement .form-group textarea:focus {
+    border-color: #ff6200 !important;
+    box-shadow: 0 0 25px rgba(255,98,0,0.35) !important;
+    background: #181818 !important;
+    outline: none !important;
+}
+
+/* Bouton (déjà bon, on le garde) */
+.btn-submit {
+    background: linear-gradient(135deg, #c8102e, #ff6200) !important;
+    color: white !important;
+    padding: 1.4rem !important;
+    border: none !important;
+    border-radius: 60px !important;
+    font-size: 1.4rem !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: all 0.4s ease !important;
+    box-shadow: 0 0 35px rgba(200,16,46,0.6) !important;
+    margin-top: 1.5rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+}
+
+.btn-submit:hover {
+    transform: translateY(-6px) scale(1.05) !important;
+    box-shadow: 0 25px 60px rgba(255,98,0,0.8) !important;
+}
+
+/* CORRECTION FORMULAIRE – CHAMPS NOIRS + LABELS ORANGE (sans toucher à la vidéo) */
+
+.form-recrutement .form-group label {
+    color: #ff6200 !important;
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+    text-shadow: 0 0 20px rgba(255,98,0,0.6) !important;
+    margin-bottom: 0.7rem !important;
+}
+
+.form-recrutement .form-group input,
+.form-recrutement .form-group textarea {
+    background: #111111 !important;
+    color: #f0f0f0 !important;
+    border: 2px solid #444444 !important;
+    border-radius: 12px !important;
+    padding: 1.3rem 1.6rem !important;
+    font-size: 1.0rem !important;
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.8) !important;
+    transition: all 0.35s ease !important;
+}
+
+.form-recrutement .form-group input:focus,
+.form-recrutement .form-group textarea:focus {
+    border-color: #ff6200 !important;
+    box-shadow: 0 0 25px rgba(255,98,0,0.35) !important;
+    background: #181818 !important;
+    outline: none !important;
+}
+
+.form-recrutement .form-group input::placeholder,
+.form-recrutement .form-group textarea::placeholder {
+    color: #777777 !important;
+}
+
+/* CENTRAGE DU FORMULAIRE RECRUTEMENT */
+.content.recrutement,
+.recrutement-section .container,
+.form-recrutement {
+    max-width: 700px !important;          /* largeur fixe pour le formulaire */
+    margin: 0 auto !important;            /* centrage horizontal parfait */
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+/* Si tu as un .container général, force-le aussi */
+.container {
+    max-width: 700px !important;
+    margin: 0 auto !important;
+}
+
+/* RÉDUCTION FORCÉE DU BLOC "Pourquoi Guerriers du Bitume ?" */
+.form-recrutement textarea[name="motivation"] {
+    min-height: 30px !important;          /* hauteur de base très petite */
+    max-height: 20px !important;         /* limite stricte pour ne pas grandir */
+    font-size: 1rem !important;           /* texte plus petit */
+    padding: 0.8rem 1.2rem !important;    /* moins d'espace intérieur */
+    margin-top: 0.3rem !important;        /* rapproche du label */
+    margin-bottom: 0.6rem !important;     /* espace après réduit */
+    line-height: 1.4 !important;          /* texte plus serré */
+}
+
+/* Label "Pourquoi..." plus compact */
+.form-recrutement label[for="motivation"] {
+    font-size: 1.15rem !important;
+    margin-bottom: 0.4rem !important;
+    padding-bottom: 0 !important;
+}
+
+/* Réduction des marges du bloc parent pour gagner de la place */
+.form-recrutement .form-group:has(textarea[name="motivation"]) {
+    margin-bottom: 0.8rem !important;     /* espace après le bloc réduit */
+    padding-bottom: 0 !important;
+}
+
+/* CENTRAGE PARFAIT DU FORMULAIRE */
+.form-recrutement {
+    max-width: 700px !important;           /* largeur fixe du formulaire */
+    margin: 0 auto !important;             /* centrage horizontal parfait */
+    padding: 0 1rem !important;            /* petites marges latérales */
+}
+
+/* Si tu as un conteneur parent (ex : .container ou .content) */
+.container, .recrutement-section .container {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+/* FORCE LABELS ORANGE VIF + CHAMPS NOIRS – PRIORITÉ MAX (ne touche pas vidéo) */
+#recrutement-form .form-group label,
+#recrutement-form label,
+.form-recrutement label,
+.recrutement-form label span {
+    color: #ff6200 !important;
+    font-weight: bold !important;
+    font-size: 1.25rem !important;
+    text-shadow: 0 0 10px rgba(255,98,0,0.6) !important;
+    margin-bottom: 0.6rem !important;
+}
+
+#recrutement-form .form-group input,
+#recrutement-form .form-group textarea,
+.form-recrutement .form-group input,
+.form-recrutement .form-group textarea {
+    background: #111111 !important;
+    color: #f0f0f0 !important;
+    border: 2px solid #444444 !important;
+    border-radius: 10px !important;
+    padding: 1.2rem 1.5rem !important;
+    font-size: 1.1rem !important;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.7) !important;
+}
+
+#recrutement-form .form-group input:focus,
+#recrutement-form .form-group textarea:focus,
+.form-recrutement .form-group input:focus,
+.form-recrutement .form-group textarea:focus {
+    border-color: #ff6200 !important;
+    box-shadow: 0 0 20px rgba(255,98,0,0.4) !important;
+    background: #181818 !important;
+    outline: none !important;
+}
+
+#recrutement-form .form-group input::placeholder,
+#recrutement-form .form-group textarea::placeholder,
+.form-recrutement .form-group input::placeholder,
+.form-recrutement .form-group textarea::placeholder {
+    color: #777777 !important;
+}
+
+/* FAUX BOUTONS POUR LABELS – EFFET NÉON NON CLIQUABLE */
+.fake-button-label {
+    background: linear-gradient(135deg, #c8102e, #ff6200);
+    color: white;
+    padding: 0.9rem 1.4rem;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(255,98,0,0.5);
+    border: 2px solid #ff6200;
+    transition: all 0.3s ease;
+    pointer-events: none; /* non cliquable */
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px rgba(255,98,0,0.8);
+}
+
+/* Champs de saisie : même style que les faux boutons (même couleur, même glow) */
+.form-recrutement .form-group input,
+.form-recrutement .form-group textarea {
+    background: linear-gradient(135deg, #c8102e22, #ff620022) !important; /* fond très léger du même gradient */
+    color: white !important;
+    border: 2px solid #ff6200 !important;
+    border-radius: 12px !important;
+    padding: 1.2rem 1.5rem !important;
+    font-size: 1.1rem !important;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.7), 0 0 15px rgba(255,98,0,0.3) !important;
+    transition: all 0.35s ease !important;
+}
+
+/* Focus : glow néon plus fort */
+.form-recrutement .form-group input:focus,
+.form-recrutement .form-group textarea:focus {
+    border-color: #ff8f00 !important;
+    box-shadow: 0 0 30px rgba(255,143,0,0.6) !important;
+    background: linear-gradient(135deg, #c8102e44, #ff620044) !important;
+}
+
+/* Placeholder discret */
+.form-recrutement .form-group input::placeholder,
+.form-recrutement .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.5) !important;
+}
+
+/* FAKE BUTTON LABELS – EFFET NÉON NON CLIQUABLE */
+.fake-button-label {
+    background: linear-gradient(135deg, #c8102e, #ff6200);
+    color: white;
+    padding: 0.9rem 1.4rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(255,98,0,0.5);
+    border: 2px solid #ff6200;
+    transition: all 0.3s ease;
+    pointer-events: none; /* non cliquable */
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px rgba(255,98,0,0.8);
+}
+
+/* Champs de saisie : même style que les fake-buttons */
+.form-recrutement .form-group input,
+.form-recrutement .form-group textarea {
+    background: linear-gradient(135deg, rgba(200,16,46,0.1), rgba(255,98,0,0.1));
+    color: white;
+    border: 2px solid #ff6200;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.1rem;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.7), 0 0 15px rgba(255,98,0,0.3);
+    transition: all 0.35s ease;
+}
+
+.form-recrutement .form-group input:focus,
+.form-recrutement .form-group textarea:focus {
+    border-color: #ff8f00;
+    box-shadow: 0 0 30px rgba(255,143,0,0.6);
+    background: linear-gradient(135deg, rgba(200,16,46,0.2), rgba(255,98,0,0.2));
+}
+
+/* Placeholder discret */
+.form-recrutement .form-group input::placeholder,
+.form-recrutement .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+
+/* PROTECTION VIDÉO – NE JAMAIS SUPPRIMER */
+.hero-video {
+    position: relative !important;
+    height: 100vh !important;
+    width: 100% !important;
+    overflow: visible !important;
+}
+
+.bg-video {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover !important;
+    z-index: -999 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* BOUTON CRÉÉ PAR LORENZO CARTER – BAS DROITE */
+.creator-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 200;
+}
+
+.creator-link {
+    background: linear-gradient(135deg, #c8102e, #ff6200);
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 25px rgba(255,98,0,0.6);
+    transition: all 0.4s ease;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.creator-link:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 45px rgba(255,98,0,0.8);
+    text-shadow: 0 0 12px rgba(255,255,255,0.8);
+}
+
+/* GALERIE FLOTTE */
+.flotte .galerie {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.flotte .galerie img {
+    width: 100%;
+    border-radius: 12px;
+    border: 3px solid #ff6200;
+    box-shadow: 0 0 20px rgba(255,98,0,0.3);
+    transition: all 0.4s ease;
+}
+
+.flotte .galerie img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255,98,0,0.6);
+}
+
+/* CONTACT – FORMULAIRE STYLÉ */
+.contact-section {
+    padding: 8rem 5% 10rem;
+    background: linear-gradient(to bottom, #111, #0a0a0a);
+}
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-contact .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.form-contact .fake-button-label {
+    background: linear-gradient(135deg, #c8102e, #ff6200);
+    color: white;
+    padding: 0.9rem 1.4rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(255,98,0,0.5);
+    border: 2px solid #ff6200;
+    pointer-events: none;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px rgba(255,98,0,0.8);
+}
+
+.form-contact input,
+.form-contact textarea {
+    background: #111111;
+    color: #f0f0f0;
+    border: 2px solid #444444;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.1rem;
+    transition: all 0.35s ease;
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.8);
+}
+
+.form-contact input:focus,
+.form-contact textarea:focus {
+    border-color: #ff6200;
+    box-shadow: 0 0 25px rgba(255,98,0,0.35);
+    background: #181818;
+    outline: none;
+}
+
+.form-contact input::placeholder,
+.form-contact textarea::placeholder {
+    color: #777777;
+}
+
+.form-contact textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #c8102e, #ff6200);
+    color: white;
+    padding: 1.4rem;
+    border: none;
+    border-radius: 60px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 35px rgba(200,16,46,0.6);
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 25px 60px rgba(255,98,0,0.8);
+}
+
+/* RECRUTEMENT – FORMULAIRE NÉON CENTRÉ */
+.recrutement-section {
+    padding: 6rem 5% 10rem;
+    background: linear-gradient(to bottom, #111, #0a0a0a);
+}
+
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.intro-form {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #aaa;
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+.form-recrutement {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* FAKE BUTTON LABELS – NÉON ORANGE/ROUGE */
+.fake-button-label {
+    background: linear-gradient(135deg, #c8102e, #ff6200);
+    color: white;
+    padding: 0.9rem 1.4rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(255,98,0,0.5);
+    border: 2px solid #ff6200;
+    pointer-events: none;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px rgba(255,98,0,0.8);
+}
+
+/* Champs : même vibe néon que les fake-buttons */
+.form-recrutement .form-group input,
+.form-recrutement .form-group textarea {
+    background: #111111;
+    color: #f0f0f0;
+    border: 2px solid #444444;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.1rem;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.7), 0 0 15px rgba(255,98,0,0.3);
+    transition: all 0.35s ease;
+}
+
+.form-recrutement .form-group input:focus,
+.form-recrutement .form-group textarea:focus {
+    border-color: #ff6200;
+    box-shadow: 0 0 30px rgba(255,98,0,0.6);
+    background: #181818;
+    outline: none;
+}
+
+.form-recrutement .form-group input::placeholder,
+.form-recrutement .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.form-recrutement .form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+/* Bouton submit */
+.btn-submit {
+    background: linear-gradient(135deg, #c8102e, #ff6200);
+    color: white;
+    padding: 1.4rem;
+    border: none;
+    border-radius: 60px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 35px rgba(200,16,46,0.6);
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 25px 60px rgba(255,98,0,0.8);
+}
+
+/* FAKE BUTTON LABELS – NÉON ORANGE/ROUGE (utilisé pour tous les labels, dont "Pourquoi...") */
+.fake-button-label {
+    background: linear-gradient(135deg, #c8102e, #ff6200);
+    color: white;
+    padding: 0.9rem 1.4rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(255,98,0,0.5);
+    border: 2px solid #ff6200;
+    pointer-events: none;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px rgba(255,98,0,0.8);
+}
+
+/* CHAMPS DE SAISIE – même style que Contact (noir léger + glow orange) */
+.form-recrutement .form-group input,
+.form-recrutement .form-group textarea {
+    background: linear-gradient(135deg, rgba(200,16,46,0.1), rgba(255,98,0,0.1));
+    color: white;
+    border: 2px solid #ff6200;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.1rem;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.7), 0 0 15px rgba(255,98,0,0.3);
+    transition: all 0.35s ease;
+}
+
+.form-recrutement .form-group input:focus,
+.form-recrutement .form-group textarea:focus {
+    border-color: #ff8f00;
+    box-shadow: 0 0 30px rgba(255,143,0,0.6);
+    background: linear-gradient(135deg, rgba(200,16,46,0.2), rgba(255,98,0,0.2));
+}
+
+/* Placeholder identique à Contact */
+.form-recrutement .form-group input::placeholder,
+.form-recrutement .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+/* Réduction optionnelle de la textarea "Pourquoi..." (si elle reste trop grande) */
+.form-recrutement textarea[name="motivation"] {
+    min-height: 120px !important;
+    max-height: 180px !important;
+}
+
+.btn-cta.disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.btn-cta {
+    background: linear-gradient(135deg, #c8102e, #ff6200) !important;
+    color: rgb(255, 255, 255) !important;
+    padding: 1.2rem 3rem !important;
+    border-radius: 60px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 1.4rem !important;
+    box-shadow: 0 0 30px rgba(255,98,0,0.6) !important;
+    transition: all 0.4s ease !important;
+    display: inline-block !important;
+}
+
+.btn-cta:hover:not(.disabled) {
+    transform: translateY(-5px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(255,98,0,0.8) !important;
+}
+
+/* ENTREPRISE – RÈGLES STYLÉES */
+.entreprise .content {
+    padding: 6rem 5% 8rem;
+    background: linear-gradient(to bottom, #111, #0a0a0a);
+}
+
+.entreprise .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.rules-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 2rem 0;
+}
+
+.rules-list li {
+    background: rgba(200, 16, 46, 0.1);
+    border-left: 5px solid #c8102e;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+.rules-list li:hover {
+    background: rgba(200, 16, 46, 0.2);
+    box-shadow: 0 0 15px rgba(200, 16, 46, 0.3);
+}
+
+/* ENTREPRISE - STYLAGE PROPRE ET IMPACTANT */
+.entreprise .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    color: #ff6200;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+    text-shadow: 0 0 15px rgba(255,98,0,0.6);
+}
+
+.intro-text {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: #e0e0e0;
+}
+
+.rule-intro {
+    font-size: 1.4rem;
+    color: #ff6200;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.rules-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.rules-list li {
+    background: rgba(200, 16, 46, 0.08);
+    border-left: 5px solid #c8102e;
+    padding: 1.2rem 1.6rem;
+    margin-bottom: 1.2rem;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #00ebfc;
+    transition: all 0.3s ease;
+}
+
+.rules-list li:hover {
+    background: rgba(200, 16, 46, 0.18);
+    box-shadow: 0 0 20px rgba(200,16,46,0.3);
+    transform: translateX(8px);
+}
+
+.quote {
+    font-size: 1.6rem;
+    font-style: italic;
+    color: #ff6200;
+    text-align: center;
+    margin-top: 4rem;
+    text-shadow: 0 0 15px rgba(255,98,0,0.5);
+}
+
+/* FLOTTE - GALERIE CAMIONS NÉON */
+.flotte .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    color: #ff6200;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 2rem 0 1rem;
+    text-shadow: 0 0 15px rgba(255,98,0,0.5);
+}
+
+.intro-text {
+    font-size: 1.3rem;
+    text-align: center;
+    color: #e0e0e0;
+    margin-bottom: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.galerie {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.galerie-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #111;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    transition: all 0.4s ease;
+}
+
+.galerie-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.5s ease;
+}
+
+.galerie-item:hover img {
+    transform: scale(1.08);
+}
+
+.galerie-item p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    color: #ff6200;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.galerie-item:hover p {
+    opacity: 1;
+}

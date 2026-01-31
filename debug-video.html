@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Vidéo</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background: black;
+            overflow: hidden;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .text-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+        }
+
+        h2 {
+            font-size: 5rem;
+            color: red;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<video autoplay muted loop playsinline controls>
+    <source src="/videos/videotruckyhub.mp4" type="video/mp4">
+    Pas de vidéo.
+</video>
+
+<div class="text-overlay">
+    <h2>TEST FINAL VIDÉO</h2>
+    <p>Si tu vois le texte + la vidéo qui joue, c'est gagné !</p>
+</div>
+
+</body>
+</html>

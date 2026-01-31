@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recrutement - Guerriers du Bitume</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <h1>Guerriers du Bitume</h1>
+        <span>VTC solo | ETS2 | TruckersMP | TruckyHub</span>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="entreprise.html">Entreprise</a></li>
+            <li><a href="flotte.html">Flotte</a></li>
+            <li><a href="recrutement.html" class="active">Recrutement</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero-video">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="../videos/videotruckyhub.mp4" type="video/mp4">
+        Ton navigateur ne supporte pas la vidéo.
+    </video>
+    <div class="hero-overlay">
+        <h2>Rejoins la meute</h2>
+        <p>Seuls les pilotes qui respectent le bitume et les règles ont leur place parmi nous.</p>
+    </div>
+</section>
+
+<section class="recrutement-section">
+    <div class="container">
+        <h2>Postule pour devenir Guerrier</h2>
+
+        <!-- Bouton TruckyHub grisé au départ -->
+        <p style="text-align: center; margin: 2rem 0; font-size: 1.2rem;">
+            Pour postuler officiellement, rends-toi sur TruckyHub :<br>
+            <a href="https://hub.truckyapp.com/company/41590" id="truckyhub-btn" class="btn-cta disabled" target="_blank" rel="noopener noreferrer">
+                Postuler sur TruckyHub (officiel – débloqué après envoi)
+            </a>
+        </p>
+
+        <p class="intro-form">Ou remplis le formulaire ci-dessous. On te répondra sous 24h max.</p>
+
+        <form id="recrutement-form" class="form-recrutement">
+            <div class="form-group">
+                <div class="fake-button-label">Nom complet *</div>
+                <input type="text" name="nom" placeholder="Ton nom complet" required minlength="3">
+            </div>
+
+            <div class="form-group">
+                <div class="fake-button-label">Email *</div>
+                <input type="email" name="email" placeholder="ton@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <div class="fake-button-label">Pseudo TruckersMP *</div>
+                <input type="text" name="pseudo" placeholder="Ton pseudo TMP" required minlength="3">
+            </div>
+
+            <div class="form-group">
+                <div class="fake-button-label">Âge *</div>
+                <input type="number" name="age" min="16" placeholder="Ton âge" required>
+            </div>
+
+            <div class="form-group">
+                <div class="fake-button-label">Heures ETS2 / TMP *</div>
+                <input type="text" name="heures" placeholder="ex: 450h, 1200h..." required>
+            </div>
+
+            <div class="form-group">
+                <div class="fake-button-label">Pourquoi Guerriers du Bitume ? *</div>
+                <textarea name="motivation" placeholder="Écris-nous ici... (sois clair, on déteste les messages illisibles)" rows="7" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                Envoyer ma candidature
+                <span class="loader"></span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    © 2026 Guerriers du Bitume – Bitume ou rien
+</footer>
+
+<!-- Bouton Créé par Lorenzo CARTER – Bas droite -->
+<div class="creator-button">
+    <span>Clique ici ➡️<span></span>
+    <a href="https://suulitoo.github.io/mes-liens-social-clean/" class="creator-link" target="_blank" rel="noopener noreferrer">
+        Créé par Lorenzo CARTER
+    </a>
+</div>
+
+<!-- Script JS corrigé -->
+<script>
+document.getElementById('recrutement-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = document.querySelector('.btn-submit');
+    const loader = btn.querySelector('.loader');
+    btn.disabled = true;
+    loader.style.opacity = '1';
+
+    const data = {
+        nom: this.nom.value.trim(),
+        email: this.email.value.trim(),
+        pseudo: this.pseudo.value.trim(),
+        age: this.age.value.trim(),
+        heures: this.heures.value.trim(),
+        motivation: this.motivation.value.trim()
+    };
+
+    // Embed Discord stylé
+    const embed = {
+        title: "Nouvelle Candidature Guerriers du Bitume",
+        color: 0xc8102e,
+        fields: [
+            { name: "Nom", value: data.nom || "—", inline: true },
+            { name: "Email", value: data.email || "—", inline: true },
+            { name: "Pseudo TMP", value: data.pseudo || "—", inline: true },
+            { name: "Âge", value: data.age || "—", inline: true },
+            { name: "Heures ETS2/TMP", value: data.heures || "—", inline: true },
+            { name: "Motivation", value: data.motivation || "—", inline: false }
+        ],
+        timestamp: new Date().toISOString(),
+        footer: { text: "Via le site Guerriers du Bitume" }
+    };
+
+    try {
+        const res = await fetch("https://discord.com/api/webhooks/1456694565959630930/TUeQ2rhobpADh2Et7YnRhFAbkD_R_gc5zrYXoapzYtKE6mSLEVSbaiY1k376_cxEl7Ea", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                embeds: [embed]
+            })
+        });
+
+        if (res.ok) {
+            alert("Candidature envoyée sur Discord ! Le bouton TruckyHub est maintenant débloqué.");
+            this.reset();
+
+            // Débloque le bouton TruckyHub
+            const btnTrucky = document.getElementById('truckyhub-btn');
+            if (btnTrucky) {
+                btnTrucky.classList.remove('disabled');
+            }
+        } else {
+            alert("Erreur lors de l'envoi : " + res.status);
+            console.log(await res.text());
+        }
+    } catch (err) {
+        alert("Erreur réseau. Vérifie ta connexion.");
+        console.error(err);
+    } finally {
+        btn.disabled = false;
+        loader.style.opacity = '0';
+    }
+});
+</script>
+
+</body>
+</html>
